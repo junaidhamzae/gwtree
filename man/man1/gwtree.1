@@ -1,0 +1,40 @@
+.TH GWTREE 1 "2024" "gwtree" "Git Worktree Management Tool"
+.SH NAME
+gwtree \- Efficient Git worktree management tool
+.SH SYNOPSIS
+.B gwtree
+[\fB\-b\fR \fIbranch\fR]
+[\fB\-d\fR \fIbranch\fR]
+[\fIbranch\fR]
+.SH DESCRIPTION
+.B gwtree
+is a Git worktree management tool that helps you efficiently work with multiple branches using Git worktrees. It creates and manages worktrees in a structured way, making it easier to work on multiple features simultaneously.
+.SH OPTIONS
+.TP
+.BR \-b " " \fIbranch\fR
+Create a new worktree with a new branch based on main/master
+.TP
+.BR \-d " " \fIbranch\fR
+Delete a worktree for the specified branch
+.TP
+.BR \fIbranch\fR
+Switch to the specified branch's worktree or create it if it doesn't exist
+.SH EXAMPLES
+.TP
+.B gwtree
+List all worktrees
+.TP
+.B gwtree -b feature/new-feature
+Create a new worktree for branch 'feature/new-feature'
+.TP
+.B gwtree -d feature/old-feature
+Delete the worktree for branch 'feature/old-feature'
+.TP
+.B gwtree feature/existing-feature
+Switch to the worktree for branch 'feature/existing-feature'
+.SH NOTES
+Protected branches (main, master, quality, develop) cannot be deleted using the -d flag.
+.SH AUTHOR
+Junaid Hamza
+.SH SEE ALSO
+git(1), git-worktree(1) 

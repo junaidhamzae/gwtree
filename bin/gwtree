@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+# Source the main library file
+source "${0:A:h}/../lib/gwtree.sh"
+
+# Execute the main function with all arguments
+gwtree "$@" 

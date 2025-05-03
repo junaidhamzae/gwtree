@@ -1,0 +1,38 @@
+{
+  "name": "gwtree",
+  "version": "1.0.0",
+  "description": "Efficient Git worktree management tool",
+  "main": "bin/gwtree",
+  "bin": {
+    "gwtree": "bin/gwtree"
+  },
+  "scripts": {
+    "postinstall": "chmod +x bin/gwtree"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/junaidhamzae/gwtree.git"
+  },
+  "keywords": [
+    "git",
+    "worktree",
+    "git-worktree",
+    "branch",
+    "management",
+    "development",
+    "workflow",
+    "zsh"
+  ],
+  "author": "Junaid Hamza",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/junaidhamzae/gwtree/issues"
+  },
+  "homepage": "https://github.com/junaidhamzae/gwtree#readme",
+  "os": ["darwin", "linux"],
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "dependencies": {},
+  "preferGlobal": true
+} 
