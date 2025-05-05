@@ -200,8 +200,9 @@ gwtree() {
       change_dir "$worktree_path"
       $ECHO "✅ Switched to branch: $branch at $GWTREE_WORKTREE_PATH/$folder"
     else
-      $GIT worktree add -b "$branch" "$worktree_path" origin/main && change_dir "$worktree_path"
-      $ECHO "✅ Created and switched to branch: $branch at $GWTREE_WORKTREE_PATH/$folder"
+      current_branch=$($GIT branch --show-current)
+      $GIT worktree add -b "$branch" "$worktree_path" "$current_branch" && change_dir "$worktree_path"
+      $ECHO "✅ Created and switched to branch: $branch (from $current_branch) at $GWTREE_WORKTREE_PATH/$folder"
     fi
     return
   fi
