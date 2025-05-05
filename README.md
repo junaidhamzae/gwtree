@@ -130,6 +130,23 @@ GWTREE_WORKTREE_PATH="../alternate-worktrees"  # Can be relative or absolute pat
 GWTREE_PROTECTED_BRANCHES=(master quality main develop)  # Space-separated list of protected branches
 ```
 
+## Shell Support
+
+gwtree works in both **Zsh** and **Bash** shells.
+
+- For Zsh users: Add the following to your ~/.zshrc:
+  ```sh
+  source $(npm root -g)/gwtree/lib/gwtree.sh
+  source $(npm root -g)/gwtree/lib/gwtree-completion.zsh
+  ```
+- For Bash users: Add the following to your ~/.bashrc or ~/.bash_profile:
+  ```sh
+  source $(npm root -g)/gwtree/lib/gwtree.sh
+  source $(npm root -g)/gwtree/lib/gwtree-completion.bash
+  ```
+
+Tab completion and all commands will work in both shells.
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.

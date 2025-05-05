@@ -1,7 +1,12 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # Source configuration
-source "${0:A:h}/config.sh"
+if [ -n "$ZSH_VERSION" ]; then
+  SCRIPT_DIR="${0:A:h}"
+else
+  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+fi
+source "$SCRIPT_DIR/config.sh"
 
 gwtree() {
   # Define paths to commands (removed unused MKDIR)
@@ -265,42 +270,5 @@ gwtree() {
   fi
 }
 
-# Completion function for gwtree
-_gwtree() {
-  local state
-  local -a subcommands
-  local -a branches
-  
-  subcommands=('-b:Create new worktree with new branch' '-d:Delete a worktree' 'config:Configure gwtree settings')
-  
-  _arguments \
-    '1: :->first_arg' \
-    '2: :->second_arg'
-    
-  case $state in
-    first_arg)
-      _describe 'command' subcommands
-      # Get both local and remote branches, excluding HEAD and remote HEAD
-      branches=(
-        ${(f)"$(git branch --format='%(refname:short)' 2>/dev/null)"}
-        ${(f)"$(git branch -r --format='%(refname:short)' 2>/dev/null | grep -v 'HEAD' | sed 's#origin/##')"}
-      )
-      _describe 'branches' branches
-      ;;
-    second_arg)
-      case $words[2] in
-        -b|-d)
-          # Get both local and remote branches, excluding HEAD and remote HEAD
-          branches=(
-            ${(f)"$(git branch --format='%(refname:short)' 2>/dev/null)"}
-            ${(f)"$(git branch -r --format='%(refname:short)' 2>/dev/null | grep -v 'HEAD' | sed 's#origin/##')"}
-          )
-          _describe 'branches' branches
-          ;;
-      esac
-      ;;
-  esac
-}
-
-# Register the completion function
-compdef _gwtree gwtree 
+# Completion is now in separate files for Bash and Zsh
+# Do not register completion here 

@@ -1,14 +1,21 @@
 {
   "name": "gwtree",
   "version": "1.0.0",
-  "description": "Efficient Git worktree management tool",
-  "main": "bin/gwtree",
+  "description": "A powerful Git worktree management tool that simplifies handling multiple branches with an intuitive CLI interface",
+  "main": "lib/gwtree.sh",
   "bin": {
     "gwtree": "bin/gwtree"
   },
   "scripts": {
     "postinstall": "chmod +x bin/gwtree"
   },
+  "files": [
+    "bin/",
+    "lib/",
+    "man/",
+    "LICENSE",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/junaidhamzae/gwtree.git"
@@ -16,9 +23,9 @@
   "keywords": [
     "git",
     "worktree",
-    "git-worktree",
     "branch",
     "management",
+    "cli",
     "development",
     "workflow",
     "zsh"
@@ -29,7 +36,10 @@
     "url": "https://github.com/junaidhamzae/gwtree/issues"
   },
   "homepage": "https://github.com/junaidhamzae/gwtree#readme",
-  "os": ["darwin", "linux"],
+  "os": [
+    "darwin",
+    "linux"
+  ],
   "engines": {
     "node": ">=12.0.0"
   },
